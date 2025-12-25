@@ -2,16 +2,6 @@
     text-align: center;
 }
 
-#back-button {
-    margin-top: 1em;
-    display: inline-block;
-    background-color: hwb(199 47% 23%);
-    color: black;
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
 #category-links {
     background: rgba(0, 0, 0, 0.6);  /* semi-transparent black */
     color: white;                    /* text color */
@@ -40,10 +30,10 @@
     border-radius: 10px;             /* rounded corners */
     font-size: fit-content;              /* shrink to text */
     padding: 1.5em;                  /* space inside the box */
-    margin-top: 1em;                     /* space around the box */
+    margin-top: 2em;                     /* space around the box */
     max-width: 100vw;
-    height: 50vh;
-    max-height: 50vh;
+    height: 70vh;
+    max-height: 70vh;
     font-size: 1.25em;
 }
 

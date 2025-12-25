@@ -1,0 +1,23 @@
+---
+pagination:
+  data: collections.categories
+  size: 1
+  alias: category
+permalink: "interests/blog/categories/{{ category | slugify }}/index.html"
+layout: textBoxLayout.njk
+CSSNesting: ../../../../CSS/
+pageName: blog
+pageNesting: ../../../../
+---
+<h2>Category: {{ category }}</h2>
+
+<p>
+    <a id="Back-Button" href="{{ page.pageNesting }}/interests/blog/blog.html">Back to all posts</a>
+</p>
+
+{% set posts = collections.post | filterByCategory(category) %}
+
+{%- for post in posts | reverse -%}
+        {{ post.data.title }} <br/> {{ post.date | readableDateTime }}<br/>
+        {% excerpt post %}
+{%- endfor -%}

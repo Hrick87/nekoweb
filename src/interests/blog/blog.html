@@ -1,0 +1,29 @@
+---
+layout: navigationBar.njk
+CSSNesting: ../../CSS/
+pageName: blog
+pageNesting: ../../
+---
+    <div id="main">
+        <div id="category-links">
+            <h2>Categories</h2>
+            <ul>
+                {%- for category in collections.categories -%}
+                    <li>
+                        <a href="{{ page.pageNesting }}/interests/blog/categories/{{ category | slugify }}/index.html">{{ category }}</a>
+                    </li>
+                {%- endfor -%}
+            </ul>
+        </div>
+        <div id="text-box">
+            <h1>Blog Posts</h1>
+            <ul>
+                {%- for post in collections.post | reverse -%}
+                    <p>
+                        {{ post.data.title }} <br/> {{ post.date | readableDateTime }}<br/>
+                        {% excerpt post %}
+                    </p>
+                {%- endfor -%}
+            </ul>
+        </div>
+    </div>
