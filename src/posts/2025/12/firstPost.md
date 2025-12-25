@@ -1,6 +1,6 @@
 ---
 title: First blog post to kick off my website
-date: 2025-12-01
+date: 2025-25-12
 categories: ["Rambling"]
 tags: post
 ---
