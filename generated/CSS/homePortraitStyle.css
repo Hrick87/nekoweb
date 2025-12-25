@@ -1,0 +1,51 @@
+/* Page Graphics */
+#dice {
+    position: absolute;
+    margin-top: 7%;
+    margin-left: 31%;
+    height: auto;
+    width: 40%;
+    opacity: 80%;
+    filter:grayscale(75%) brightness(50%);
+
+}
+
+#dice:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 1.5s;
+
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+    opacity: 100%;
+    filter:grayscale(0%) brightness(100%);
+}
+
+#casette_tape {
+    position: absolute;
+    height: auto;
+    width: 40%;
+    margin-left: 33%;
+    margin-top: 47%;
+    opacity: 80%;
+    filter:grayscale(75%) brightness(50%);
+}
+
+#casette_tape:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 1.5s;
+
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+    opacity: 100%;
+    filter:grayscale(0%) brightness(100%);
+}
+
+#journal {
+    position: absolute;
+    height: auto;
+    width: 40%;
+    margin-left: 31%;
+    margin-top: 90%;
+    opacity: 80%;
+    filter:grayscale(75%) brightness(50%);
+}

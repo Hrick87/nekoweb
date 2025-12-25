@@ -1,0 +1,30 @@
+#banner img {
+    height: 21em;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+#main h1 {
+    text-align: center;
+}
+
+#main h2 {
+    margin-left: 2em;
+}
+
+#main p {
+    margin-left: 4em;
+    margin-right: 1.5em;
+}
+
+#featureList {
+    margin-left: 4em;
+    margin-right: 1.5em;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+    color: rgb(228, 228, 228);
+}

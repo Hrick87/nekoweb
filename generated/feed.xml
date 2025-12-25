@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>For Your Eyes Only</title>
+  <subtitle></subtitle>
+  <link href="https://foryoureyesonly.nekoweb.org/feed.xml" rel="self"/>
+  <link href="https://foryoureyesonly.nekoweb.org/"/>
+  <updated>2027-01-12T00:00:00Z</updated>
+  <id>https://foryoureyesonly.nekoweb.org/</id>
+  <author>
+    <name>Hunter</name>
+    <email></email>
+  </author>
+  
+  <entry>
+    <title>First blog post to kick off my website</title>
+    <link href="https://foryoureyesonly.nekoweb.org/posts/2025/12/firstPost.html"/>
+    <updated>2027-01-12T00:00:00Z</updated>
+    <id>https://foryoureyesonly.nekoweb.org/posts/2025/12/firstPost.html</id>
+    <content type="html">&lt;p&gt;Its Christmas day and I&#39;ve finally got my blog feature on my website working. Further progress coming for my Millenium and Music pages.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
