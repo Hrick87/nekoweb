@@ -1,4 +1,3 @@
 node_modules/
 package-lock.json
 api_key.txt
-flask_comment_system/virtual_env/
