@@ -1,8 +1,6 @@
 ---
 title: Life Update
 date: 2025-12-27
-hour: 1
-minute: 12
 categories: ["Rambling"]
 tags: post
 ---
