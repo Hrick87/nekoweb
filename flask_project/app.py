@@ -1,40 +1,55 @@
-from flask import Flask, render_template, request, redirect
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import DeclarativeBase
-
-class Base(DeclarativeBase):
-  pass
+import sqlite3
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comments.db'
-db = SQLAlchemy(model_class=Base)
-db.init_app(app)
+CORS(app)
 
-class Comment(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(40), nullable=False)
-    comment = db.Column(db.Text, nullable=False)
-    # When doing a query, display each row represented
-    # by an object containing what's in the return statement
-    def __repr__(self):
-        return 'Comment ' + str(self.id)
+DB_PATH = "comments.db"
 
-with app.app_context():
-    db.create_all()
+def get_db():
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    return conn
 
-@app.route('/comments', methods=['POST', 'GET'])
-def comments():    
-    if request.method == 'POST':
-        db.session.add(Comment(
-            name=request.form['name'],
-            comment=request.form['comment']
-        ))
-        db.session.commit()
-        return redirect('/comments')    
-    # Get all the posts from the Database
-    # This only happens if the method is GET (works like an "else")
-    comments = Comment.query.all()    
-    return render_template('comments.html', comments=comments)
+@app.route("/comments", methods=["GET"])
+def get_comments():
+    post_id = request.args.get("post")
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    if not post_id:
+        return jsonify({"error": "post required"}), 400
+
+    db = get_db()
+    rows = db.execute(
+        "SELECT author, text, created_at FROM comments WHERE post_id = ? ORDER BY created_at ASC",
+        (post_id,)
+    ).fetchall()
+    db.close()
+
+    return jsonify([dict(row) for row in rows])
+
+@app.route("/comments", methods=["POST"])
+def add_comment():
+    data = request.get_json()
+
+    required = ("post", "author", "text")
+    if not all(k in data for k in required):
+        return jsonify({"error": "missing fields"}), 400
+
+    db = get_db()
+    db.execute(
+        "INSERT INTO comments (post_id, author, text) VALUES (?, ?, ?)",
+        (data["post"], data["author"], data["text"])
+    )
+    db.commit()
+    db.close()
+
+    return jsonify({"status": "ok"}), 201
+
+def init_db():
+    db = get_db()
+    with open("schema.sql") as f:
+        db.executescript(f.read())
+    db.close()
+
+init_db()

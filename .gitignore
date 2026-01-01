@@ -1,4 +1,6 @@
 node_modules/
 package-lock.json
 api_key.txt
-flask_comment_system/venv/*
+flask_project/__pycache__/*
+flask_project/virtual_env/*
+flask_project/comments.db
