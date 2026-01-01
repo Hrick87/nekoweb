@@ -36,11 +36,11 @@ pageNesting: ../../
                     </section>
                     <script>
                         // TODO Change for production
-                        const API_BASE = "http://127.0.0.1:5000/comments";
+                        const API_BASE = "http://127.0.0.1:5000";
                         // const API_BASE = Raspberry Pi IP address/comments
                         const postId = window.location.pathname;
 
-                        fetch(`${API_BASE}?post=${postId}`)
+                        fetch(`${API_BASE}/comments?post=${postId}`)
                         .then(r => r.json())
                         .then(comments => {
                             document.getElementById("comment-list").innerHTML =
