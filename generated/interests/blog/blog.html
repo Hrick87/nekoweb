@@ -7,15 +7,15 @@
     <title>For Your Eyes Only</title>
     
     <!-- General styling-->
-    <link rel="stylesheet" href="../../CSS/style.css?nocache=1767412282570"/>
+    <link rel="stylesheet" href="../../CSS/style.css?nocache=1767413038653"/>
     <!-- Mobile portrait mode only-->
-    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/portraitStyle.css?nocache=1767412282570"/>
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/portraitStyle.css?nocache=1767413038653"/>
     <!-- Mobile landscape mode only-->
-    <link rel="stylesheet" media="only screen and (orientation: landscape)" href="../../CSS/landscapeStyle.css?nocache=1767412282570"/>
+    <link rel="stylesheet" media="only screen and (orientation: landscape)" href="../../CSS/landscapeStyle.css?nocache=1767413038653"/>
     
     <!-- Specific to page styling -->
-    <link rel="stylesheet" href="../../CSS/blogStyle.css?nocache=1767412282570"/>
-    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/blogPortraitStyle.css?nocache=1767412282570"/>
+    <link rel="stylesheet" href="../../CSS/blogStyle.css?nocache=1767413038653"/>
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/blogPortraitStyle.css?nocache=1767413038653"/>
 </head>
 <body>
     <header>
@@ -56,15 +56,22 @@
                     </br>
                     <script>
                         // TODO Change for production
-                        const API_BASE = "http://127.0.0.1:5000";
                         // const API_BASE = Raspberry Pi IP address/comments
+                        let API_BASE = "http://127.0.0.1:5000";
                         const postId = window.location.pathname;
 
                         fetch(`${API_BASE}/comments?post=${postId}`)
                         .then(r => r.json())
                         .then(comments => {
-                            document.getElementById("comment-list").innerHTML =
-                            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
+                                console.log(comments);
+                                console.log(typeof comments);
+                                console.log(Array.isArray(comments));
+                            if (comments.length === 0) {
+                                document.getElementById("comment-list").innerHTML = "<p>No comments yet. Be the first to comment!</p>";
+                            } else {
+                                document.getElementById("comment-list").innerHTML =
+                                comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
+                            }
                         });
 
                         document.getElementById("comment-form").addEventListener("submit", async e => {
@@ -103,15 +110,22 @@
                     </br>
                     <script>
                         // TODO Change for production
-                        const API_BASE = "http://127.0.0.1:5000";
                         // const API_BASE = Raspberry Pi IP address/comments
+                        let API_BASE = "http://127.0.0.1:5000";
                         const postId = window.location.pathname;
 
                         fetch(`${API_BASE}/comments?post=${postId}`)
                         .then(r => r.json())
                         .then(comments => {
-                            document.getElementById("comment-list").innerHTML =
-                            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
+                                console.log(comments);
+                                console.log(typeof comments);
+                                console.log(Array.isArray(comments));
+                            if (comments.length === 0) {
+                                document.getElementById("comment-list").innerHTML = "<p>No comments yet. Be the first to comment!</p>";
+                            } else {
+                                document.getElementById("comment-list").innerHTML =
+                                comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
+                            }
                         });
 
                         document.getElementById("comment-form").addEventListener("submit", async e => {
@@ -147,15 +161,22 @@
                     </br>
                     <script>
                         // TODO Change for production
-                        const API_BASE = "http://127.0.0.1:5000";
                         // const API_BASE = Raspberry Pi IP address/comments
+                        let API_BASE = "http://127.0.0.1:5000";
                         const postId = window.location.pathname;
 
                         fetch(`${API_BASE}/comments?post=${postId}`)
                         .then(r => r.json())
                         .then(comments => {
-                            document.getElementById("comment-list").innerHTML =
-                            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
+                                console.log(comments);
+                                console.log(typeof comments);
+                                console.log(Array.isArray(comments));
+                            if (comments.length === 0) {
+                                document.getElementById("comment-list").innerHTML = "<p>No comments yet. Be the first to comment!</p>";
+                            } else {
+                                document.getElementById("comment-list").innerHTML =
+                                comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
+                            }
                         });
 
                         document.getElementById("comment-form").addEventListener("submit", async e => {

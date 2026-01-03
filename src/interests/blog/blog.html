@@ -36,15 +36,22 @@ pageNesting: ../../
                     </br>
                     <script>
                         // TODO Change for production
-                        const API_BASE = "http://127.0.0.1:5000";
                         // const API_BASE = Raspberry Pi IP address/comments
+                        let API_BASE = "http://127.0.0.1:5000";
                         const postId = window.location.pathname;
 
                         fetch(`${API_BASE}/comments?post=${postId}`)
                         .then(r => r.json())
                         .then(comments => {
-                            document.getElementById("comment-list").innerHTML =
-                            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
+                                console.log(comments);
+                                console.log(typeof comments);
+                                console.log(Array.isArray(comments));
+                            if (comments.length === 0) {
+                                document.getElementById("comment-list").innerHTML = "<p>No comments yet. Be the first to comment!</p>";
+                            } else {
+                                document.getElementById("comment-list").innerHTML =
+                                comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
+                            }
                         });
 
                         document.getElementById("comment-form").addEventListener("submit", async e => {
