@@ -24,16 +24,16 @@ pageNesting: ../../
                     <p>
                         {% excerpt post %}
                     </p>
-                    </br>
                     <section id="comments">
-                    <h2>Comments</h2>
-                    <div id="comment-list"></div>
-                    <form id="comment-form">
-                        <input name="author" placeholder="Name" required />
-                        <textarea name="text" required></textarea>
-                        <button type="submit">Post</button>
-                    </form>
+                        <h2>Comments</h2>
+                        <div id="comment-list"></div>
+                        <form id="comment-form">
+                            <input name="author" placeholder="Name" required />
+                            <textarea name="text" required></textarea>
+                            <button type="submit">Post</button>
+                        </form>
                     </section>
+                    </br>
                     <script>
                         // TODO Change for production
                         const API_BASE = "http://127.0.0.1:5000";
