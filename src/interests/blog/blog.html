@@ -28,9 +28,9 @@ pageNesting: ../../
                         <h2>Comments</h2>
                         <div id="comment-list"></div>
                         <form id="comment-form">
-                            <input name="author" placeholder="Name" required />
-                            <textarea name="text" required></textarea>
-                            <button type="submit">Post</button>
+                            <input type="text" maxlength="40" id="comment-author" name="author" placeholder="Name" required />
+                            <textarea type="text" maxlength="600" id="comment-text" name="text" placeholder="600 characters max" required></textarea>
+                            <button id="comment-post" type="submit">Post</button>
                         </form>
                     </section>
                     </br>
@@ -44,7 +44,7 @@ pageNesting: ../../
                         .then(r => r.json())
                         .then(comments => {
                             document.getElementById("comment-list").innerHTML =
-                            comments.map(c => `<p><b>${c.author}</b>: ${c.text}</p>`).join("");
+                            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
                         });
 
                         document.getElementById("comment-form").addEventListener("submit", async e => {

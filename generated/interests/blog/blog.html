@@ -7,15 +7,15 @@
     <title>For Your Eyes Only</title>
     
     <!-- General styling-->
-    <link rel="stylesheet" href="../../CSS/style.css?nocache=1767402677003"/>
+    <link rel="stylesheet" href="../../CSS/style.css?nocache=1767412282570"/>
     <!-- Mobile portrait mode only-->
-    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/portraitStyle.css?nocache=1767402677003"/>
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/portraitStyle.css?nocache=1767412282570"/>
     <!-- Mobile landscape mode only-->
-    <link rel="stylesheet" media="only screen and (orientation: landscape)" href="../../CSS/landscapeStyle.css?nocache=1767402677003"/>
+    <link rel="stylesheet" media="only screen and (orientation: landscape)" href="../../CSS/landscapeStyle.css?nocache=1767412282570"/>
     
     <!-- Specific to page styling -->
-    <link rel="stylesheet" href="../../CSS/blogStyle.css?nocache=1767402677003"/>
-    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/blogPortraitStyle.css?nocache=1767402677003"/>
+    <link rel="stylesheet" href="../../CSS/blogStyle.css?nocache=1767412282570"/>
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/blogPortraitStyle.css?nocache=1767412282570"/>
 </head>
 <body>
     <header>
@@ -48,9 +48,9 @@
                         <h2>Comments</h2>
                         <div id="comment-list"></div>
                         <form id="comment-form">
-                            <input name="author" placeholder="Name" required />
-                            <textarea name="text" required></textarea>
-                            <button type="submit">Post</button>
+                            <input type="text" maxlength="40" id="comment-author" name="author" placeholder="Name" required />
+                            <textarea type="text" maxlength="600" id="comment-text" name="text" placeholder="600 characters max" required></textarea>
+                            <button id="comment-post" type="submit">Post</button>
                         </form>
                     </section>
                     </br>
@@ -64,7 +64,7 @@
                         .then(r => r.json())
                         .then(comments => {
                             document.getElementById("comment-list").innerHTML =
-                            comments.map(c => `<p><b>${c.author}</b>: ${c.text}</p>`).join("");
+                            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
                         });
 
                         document.getElementById("comment-form").addEventListener("submit", async e => {
@@ -95,9 +95,9 @@
                         <h2>Comments</h2>
                         <div id="comment-list"></div>
                         <form id="comment-form">
-                            <input name="author" placeholder="Name" required />
-                            <textarea name="text" required></textarea>
-                            <button type="submit">Post</button>
+                            <input type="text" maxlength="40" id="comment-author" name="author" placeholder="Name" required />
+                            <textarea type="text" maxlength="600" id="comment-text" name="text" placeholder="600 characters max" required></textarea>
+                            <button id="comment-post" type="submit">Post</button>
                         </form>
                     </section>
                     </br>
@@ -111,7 +111,7 @@
                         .then(r => r.json())
                         .then(comments => {
                             document.getElementById("comment-list").innerHTML =
-                            comments.map(c => `<p><b>${c.author}</b>: ${c.text}</p>`).join("");
+                            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
                         });
 
                         document.getElementById("comment-form").addEventListener("submit", async e => {
@@ -139,9 +139,9 @@
                         <h2>Comments</h2>
                         <div id="comment-list"></div>
                         <form id="comment-form">
-                            <input name="author" placeholder="Name" required />
-                            <textarea name="text" required></textarea>
-                            <button type="submit">Post</button>
+                            <input type="text" maxlength="40" id="comment-author" name="author" placeholder="Name" required />
+                            <textarea type="text" maxlength="600" id="comment-text" name="text" placeholder="600 characters max" required></textarea>
+                            <button id="comment-post" type="submit">Post</button>
                         </form>
                     </section>
                     </br>
@@ -155,7 +155,7 @@
                         .then(r => r.json())
                         .then(comments => {
                             document.getElementById("comment-list").innerHTML =
-                            comments.map(c => `<p><b>${c.author}</b>: ${c.text}</p>`).join("");
+                            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
                         });
 
                         document.getElementById("comment-form").addEventListener("submit", async e => {
