@@ -39,37 +39,4 @@ pageNesting: ../../
         </ul>
     </div>
 </div>
-<script>
-    // TODO Change for production
-    // const API_BASE = Raspberry Pi IP address/comments
-    const API_BASE = "http://127.0.0.1:5000";
-    const postId = window.location.pathname;
-    const commentList = document.getElementById("comment-list");
-
-    fetch(`${API_BASE}/comments?post=${postId}`)
-    .then(r => r.json())
-    .then(comments => {
-        if (comments.length === 0) {
-            document.getElementById("comment-list").innerHTML = "<p>No comments yet. Be the first to comment!</p>";
-        } else {
-            document.getElementById("comment-list").innerHTML =
-            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
-        }
-    });
-
-    document.getElementById("comment-form").addEventListener("submit", async e => {
-        e.preventDefault();
-        const form = e.target;
-
-        await fetch(`${API_BASE}/comments`, {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                post: postId,
-                author: form.author.value,
-                text: form.text.value
-            })
-        });
-        location.reload();
-    });
-</script>
+<script src="scripts/typeScript/blogComments.js"></script>
