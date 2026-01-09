@@ -7,15 +7,15 @@
     <title>For Your Eyes Only</title>
     
     <!-- General styling-->
-    <link rel="stylesheet" href="../../CSS/style.css?nocache=1767415344847"/>
+    <link rel="stylesheet" href="../../CSS/style.css?nocache=1767995046113"/>
     <!-- Mobile portrait mode only-->
-    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/portraitStyle.css?nocache=1767415344847"/>
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/portraitStyle.css?nocache=1767995046113"/>
     <!-- Mobile landscape mode only-->
-    <link rel="stylesheet" media="only screen and (orientation: landscape)" href="../../CSS/landscapeStyle.css?nocache=1767415344847"/>
+    <link rel="stylesheet" media="only screen and (orientation: landscape)" href="../../CSS/landscapeStyle.css?nocache=1767995046113"/>
     
     <!-- Specific to page styling -->
-    <link rel="stylesheet" href="../../CSS/blogStyle.css?nocache=1767415344847"/>
-    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/blogPortraitStyle.css?nocache=1767415344847"/>
+    <link rel="stylesheet" href="../../CSS/blogStyle.css?nocache=1767995046113"/>
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/blogPortraitStyle.css?nocache=1767995046113"/>
 </head>
 <body>
     <header>
@@ -44,6 +44,7 @@
                     <p>So I was under the impression that if I wanted to update my site immediately without importing a zip everytime I'd need to use nekoGit and subscribe monthly. Turns out theres an API with all sorts of nice features. That means I can post like this and have the post up in a matter of minutes. Thank god. Oh also dont forget to subscribe to my RSS feed, so you can see quality content like this.</p>
 
                 </p>
+                <!-- TODO: Need some kind of unique identifier per post here -->
                 <section id="comments">
                     <h2>Comments</h2>
                     <div id="comment-list"></div>
@@ -62,6 +63,7 @@
 <p>Last but not least, I got my girlfriend to try building her own site on Nekoweb and she's hooked! I can't wait to add her to my webring!</p>
 
                 </p>
+                <!-- TODO: Need some kind of unique identifier per post here -->
                 <section id="comments">
                     <h2>Comments</h2>
                     <div id="comment-list"></div>
@@ -77,6 +79,7 @@
                     <p>Its Christmas day and I've finally got my blog feature on my website working. Further progress coming for my Millenium and Music pages.</p>
 
                 </p>
+                <!-- TODO: Need some kind of unique identifier per post here -->
                 <section id="comments">
                     <h2>Comments</h2>
                     <div id="comment-list"></div>
@@ -89,39 +92,6 @@
                 </br></ul>
     </div>
 </div>
-<script>
-    // TODO Change for production
-    // const API_BASE = Raspberry Pi IP address/comments
-    const API_BASE = "http://127.0.0.1:5000";
-    const postId = window.location.pathname;
-    const commentList = document.getElementById("comment-list");
-
-    fetch(`${API_BASE}/comments?post=${postId}`)
-    .then(r => r.json())
-    .then(comments => {
-        if (comments.length === 0) {
-            document.getElementById("comment-list").innerHTML = "<p>No comments yet. Be the first to comment!</p>";
-        } else {
-            document.getElementById("comment-list").innerHTML =
-            comments.map(c => `<p><b>${c.author}</b></br> ${c.text}</p>`).join("");
-        }
-    });
-
-    document.getElementById("comment-form").addEventListener("submit", async e => {
-        e.preventDefault();
-        const form = e.target;
-
-        await fetch(`${API_BASE}/comments`, {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                post: postId,
-                author: form.author.value,
-                text: form.text.value
-            })
-        });
-        location.reload();
-    });
-</script>
+<script src="../../scripts/javaScript/blogComments.js"></script>
 </body>
 </html>
