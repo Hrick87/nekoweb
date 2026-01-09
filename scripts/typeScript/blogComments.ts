@@ -33,44 +33,78 @@ fetch(`${API_BASE}/comments?post=${postId}`)
 * but typeScript can usually infer the type of Promise it is. 
 * This then returns the value after the => which is a javaScript Promise of an Array of 
 * our Interface we declared above */
-.then((fetchResponse: Response): Promise<Blog_Comment[]> => (fetchResponse.json()))
+.then((fetchResponse: Response): Promise<Blog_Comment[]> => {
+    if (!fetchResponse.ok) {
+      // This handles HTTP errors (404, 500, etc.)
+      throw new Error(`HTTP error! status: ${fetchResponse.status}`);
+    }
+    return fetchResponse.json()}
+)
 /*
 * Promises always resolve in the next then call. Thus the type of our argument comments becomes Blog_Comments[]
 * This is our last call so now we resolve what we want to do with our argument. In a lot of cases, its to alter
 * our HTML in some way programmatically. */
 .then((comments : Blog_Comment[]) => {
+    
+    let comment_list : HTMLElement | null  = document.getElementById("comment-list");
+    if(comment_list === null) {
+        throw new Error("comment-list html element not found.");
+    }
+
     if (comments.length === 0) {
-        document.getElementById("comment-list").innerHTML = "<p>No comments yet. Be the first to comment!</p>";
+            comment_list.innerHTML = "<p>No comments yet. Be the first to comment!</p>";
     } else {
-        document.getElementById("comment-list").innerHTML =
+        comment_list.innerHTML =
             comments.map((blog_comment_element : Blog_Comment): string => 
             `<p><b>${blog_comment_element.author}</b></br> ${blog_comment_element.text}</p>`).join("");
     }
 })
 // Use this block to catch any errors that may occur with the above processes
 // Unknown types cannot be used to do anything
-.catch((error: unknown) => { 
+.catch((error: unknown) : void => { 
     console.error("ERROR: ", error);
-    
-    const commentList : HTMLElement = document.getElementById("comment-list");
-    if (commentList) {
-        commentList.innerHTML =
-            "<p>Failed to load comments. Please try again later.</p>";
+    if(error === "comment-list html element not found.\n"){
+        console.error(error)
+    }
+    else{
+        const commentList : HTMLElement | null = document.getElementById("comment-list");
+        if (commentList) {
+            commentList.innerHTML =
+                "<p>Failed to load comments. Please try again later.</p>";
+        }
     }
 });
 
-document.getElementById("comment-form").addEventListener("submit", async e => {
-    e.preventDefault();
-    const form = e.target;
-
-    await fetch(`${API_BASE}/comments`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            post: postId,
-            author: form.author.value,
-            text: form.text.value
-        })
-    });
-    location.reload();
-});
+let comment_list : HTMLElement | null = document.getElementById("comment-form");
+try {
+    if (comment_list === null) {
+        throw new Error("comment-list html element not found.\n")
+    }
+        else{
+            comment_list.addEventListener("submit", async e => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                if(form === null){
+                    throw new Error("Form is null.\n")
+                }
+                else{
+                    await fetch(`${API_BASE}/comments`, {
+                        method: "POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify({
+                            post: postId,
+                            author: form.author.value,
+                            text: form.text.value
+                        })
+                    });
+                    location.reload();
+                }
+            });
+        }
+}
+catch(error: unknown) { 
+    console.error("ERROR: ", error);
+    if(error === "comment-list html element not found."){
+        console.error(error)
+    }
+}

@@ -1,9 +1,10 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
+  "include": ["typeScript/**/*"], // NOT SURE ABOUT THIS
   "compilerOptions": {
     // File Layout
-     "rootDir": "typeScript",
-     "outDir": "javaScript",
+     "rootDir": "typeScript/",
+     "outDir": "javaScript/",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
@@ -11,7 +12,7 @@
     "target": "es2015",
     //"types": [],
     // For nodejs:
-    "lib": [ "es2015" ],
+    "lib": [ "dom", "es2015" ],
     // "types": ["node"],
     // and npm install -D @types/node
 
