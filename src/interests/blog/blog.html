@@ -25,13 +25,13 @@ pageNesting: ../../
                     {% excerpt post %}
                 </p>
                 <!-- TODO: Need some kind of unique identifier per post here -->
-                <section id="comments">
+                <section class="comments" data-post-id="{{ post.url }}">
                     <h2>Comments</h2>
-                    <div id="comment-list"></div>
-                    <form id="comment-form">
-                        <input type="text" maxlength="40" id="comment-author" name="author" placeholder="Name" required />
-                        <textarea type="text" maxlength="600" id="comment-text" name="text" placeholder="600 characters max" required></textarea>
-                        <button id="comment-post" type="submit">Post</button>
+                    <div class="comment-list"></div>
+                    <form class="comment-form">
+                        <input type="text" maxlength="40" class="comment-author" name="author" placeholder="Name" required />
+                        <textarea type="text" maxlength="600" class="comment-text" name="text" placeholder="600 characters max" required></textarea>
+                        <button class="comment-post" type="submit">Post</button>
                     </form>
                 </section>
                 </br>
