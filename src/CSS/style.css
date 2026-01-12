@@ -1,5 +1,6 @@
 #navigationBar {
     margin: 0;  /* keeps navbar at top of screen */
+    padding: 0;
     background-color: #0e1821;
     display: flex;
     justify-content: center;

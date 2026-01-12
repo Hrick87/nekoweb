@@ -1,63 +1,31 @@
-/* Page Graphics */
-#dice {
-    position: absolute;
-    margin-top: 12%;
-    margin-left: 3%;
-    height: auto;
-    width: 25%;
+/* Background Image */
+body {
+    background-image: url('../graphics/japan.gif');
+    background-size: cover;       /* Scale image to cover entire window */
+    background-repeat: no-repeat;
+    background-position: center;  /* Center the image */
+    margin: 0;                    /* Remove default body margin */
+    min-height: 100vh;          /* keeps background filling entire screen */
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    place-items: center;
+    min-height: 90vh;
+}
+
+.mainContainer a {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+/* page Graphics */
+.mainContainer img {
+    max-width: 70%;
     opacity: 80%;
     filter:grayscale(75%) brightness(50%);
-
-}
-
-#dice:hover {
-    /* Start the shake animation and make the animation last for 0.5 seconds */
-    animation: shake 1.5s;
-
-    /* When the animation is finished, start again */
-    animation-iteration-count: infinite;
-    opacity: 100%;
-    filter:grayscale(0%) brightness(100%);
-}
-
-#casette_tape {
-    position: absolute;
-    height: auto;
-    width: 25%;
-    margin-left: 38%;
-    margin-top: 12%;
-    opacity: 80%;
-    filter:grayscale(75%) brightness(50%);
-}
-
-#casette_tape:hover {
-    /* Start the shake animation and make the animation last for 0.5 seconds */
-    animation: shake 1.5s;
-
-    /* When the animation is finished, start again */
-    animation-iteration-count: infinite;
-    opacity: 100%;
-    filter:grayscale(0%) brightness(100%);
-}
-
-#journal {
-    position: absolute;
-    height: auto;
-    width: 25%;
-    margin-left: 72%;
-    margin-top: 10%;
-    opacity: 80%;
-    filter:grayscale(75%) brightness(50%);
-}
-
-#journal:hover {
-    /* Start the shake animation and make the animation last for 0.5 seconds */
-    animation: shake 1.5s;
-
-    /* When the animation is finished, start again */
-    animation-iteration-count: infinite;
-    opacity: 100%;
-    filter:grayscale(0%) brightness(100%);
 }
 
 @keyframes shake {
@@ -74,12 +42,12 @@
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-/* Background Image */
-body {
-    background-image: url('../graphics/japan.gif');
-    background-size: cover;       /* Scale image to cover entire window */
-    background-repeat: no-repeat;
-    background-position: center;  /* Center the image */
-    margin: 0;                    /* Remove default body margin */
-    height: 100vh;                /* Ensure body fills viewport height */
+img:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 1.5s;
+
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+    opacity: 100%;
+    filter:grayscale(0%) brightness(100%);
 }
