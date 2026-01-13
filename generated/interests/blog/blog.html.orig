@@ -7,15 +7,27 @@
     <title>For Your Eyes Only</title>
     
     <!-- General styling-->
-    <link rel="stylesheet" href="../../CSS/style.css?nocache=1768281999856"/>
+<<<<<<< HEAD
+    <link rel="stylesheet" href="../../CSS/style.css?nocache=1768194581718"/>
     <!-- Mobile portrait mode only-->
-    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/portraitStyle.css?nocache=1768281999856"/>
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/portraitStyle.css?nocache=1768194581718"/>
     <!-- Mobile landscape mode only-->
-    <link rel="stylesheet" media="only screen and (orientation: landscape)" href="../../CSS/landscapeStyle.css?nocache=1768281999856"/>
+    <link rel="stylesheet" media="only screen and (orientation: landscape)" href="../../CSS/landscapeStyle.css?nocache=1768194581718"/>
     
     <!-- Specific to page styling -->
-    <link rel="stylesheet" href="../../CSS/blogStyle.css?nocache=1768281999856"/>
-    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/blogPortraitStyle.css?nocache=1768281999856"/>
+    <link rel="stylesheet" href="../../CSS/blogStyle.css?nocache=1768194581718"/>
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/blogPortraitStyle.css?nocache=1768194581718"/>
+=======
+    <link rel="stylesheet" href="../../CSS/style.css?nocache=1768281338269"/>
+    <!-- Mobile portrait mode only-->
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/portraitStyle.css?nocache=1768281338269"/>
+    <!-- Mobile landscape mode only-->
+    <link rel="stylesheet" media="only screen and (orientation: landscape)" href="../../CSS/landscapeStyle.css?nocache=1768281338269"/>
+    
+    <!-- Specific to page styling -->
+    <link rel="stylesheet" href="../../CSS/blogStyle.css?nocache=1768281338269"/>
+    <link rel="stylesheet" media="only screen and (orientation: portrait)" href="../../CSS/blogPortraitStyle.css?nocache=1768281338269"/>
+>>>>>>> fix/css_cleanup
 </head>
 <body>
     <header>

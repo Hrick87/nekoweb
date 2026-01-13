@@ -4,14 +4,12 @@ CSSNesting: ../../CSS/
 pageName: blog
 pageNesting: ../../
 ---
-    <div id="main">
+    <div id="mainContainer">
         <div id="category-links">
             <h1>Categories</h1>
             <ul>
                 {%- for category in collections.categories -%}
-                    <li>
                         <a href="{{ page.pageNesting }}/interests/blog/categories/{{ category | slugify }}/index.html">{{ category }}</a>
-                    </li>
                 {%- endfor -%}
             </ul>
         </div>
