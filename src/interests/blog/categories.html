@@ -9,12 +9,12 @@ CSSNesting: ../../../../CSS/
 pageName: categories
 pageNesting: ../../../../
 ---
-<div id="main">
+<div id="mainContainer">
     <div id="category-links">
-      <h2>Category: {{ category }}</h2>
-      <p>
+      <h1>Category: {{ category }}</h1>
+      <ul>
         <a id="Back-Button" href="{{ page.pageNesting }}/interests/blog/blog.html">Back to all posts</a>
-      </p>
+      <ul>
     </div>
     <div id="text-box">
       {% set posts = collections.post | filterByCategory(category) %}
