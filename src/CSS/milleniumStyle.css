@@ -1,41 +1,73 @@
+/* centers all child content */
 .mainContainer {
     display: grid;
     grid-template-columns: auto;
     place-content: center;
     margin-left: auto;
     margin-right: auto;
+    justify-content: stretch;
+    width: 50%;
 }
 
+/* centers img */
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* gives image a gradient */
 .banner img {
-    /* -webkit-mask-image: radial-gradient(
+    -webkit-mask-image: radial-gradient(
         ellipse at center,
-        black 60%,
+        black 30%,
         transparent 100%
     );
 
     mask-image: radial-gradient(
         ellipse at center,
-        black 60%,
+        black 30%,
         transparent 100%
-    ); */
+    );
+
+    height: 50%;
+    width: 100%;
 }
 
+/* centers text box */
+.text-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/* centers Millenium title */
 .text-box h1 {
     text-align: center;
+    margin-top: 0;
+    margin-bottom: .5em;
 }
 
+/* creates tabbing */
 .text-box h2 {
+    text-align: left;
     margin-left: 2em;
+    margin-bottom: .5em; /* get rid of space between each section and its paragraph */
 }
 
+/* creates tabbing */
 .text-box p {
+    text-align: left;
+    margin-top: 0; /* get rid of space between each section and its paragraph */
     margin-left: 4em;
-    margin-right: 1.5em;
+    margin-right: 4em;
 }
 
+/* creates tabbing */
 .featureList {
-    margin-left: 4em;
-    margin-right: 1.5em;
+    text-align: left;
+    margin-top: 0; /* get rid of space between each section and its paragraph */
+    margin-left: 2.5em;
+    margin-right: 2.5em;
 }
 
 body {
